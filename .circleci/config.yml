@@ -151,6 +151,8 @@ jobs:
           name: find the load balancer's IP address
           command: |
             kubectl describe services ourmemoryapp
+      - destroy-environment:
+          cluster_name: ourmemoryapp
 
 workflows:
   default:
