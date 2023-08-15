@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: OurMemoryApp
+  labels:
+    app: OurMemoryApp
+spec:
+  type: LoadBalancer
+  selector:
+    app: OurMemoryApp
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
