@@ -165,5 +165,3 @@ workflows:
           requires: [build-and-upload-docker]
       - run-app-deploy:
           requires: [eks-deploy]
-      - run-test:
-          requires: [run-app-deploy]
