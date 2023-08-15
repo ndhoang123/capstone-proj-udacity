@@ -96,13 +96,13 @@ jobs:
       - checkout
       - aws-cli/setup
       - aws-eks/create-cluster:
-          cluster-name: OurMemoryApp
-          nodegroup-name: OurMemoryApp-nodes
+          cluster-name: ourmemoryapp
+          nodegroup-name: ourmemoryapp-nodes
           node-type: t3.medium
           nodes-min: 2
           nodes-max: 3
       - destroy-environment:
-          cluster_name: OurMemoryApp
+          cluster_name: ourmemoryapp
 
   run-app-deploy:
     docker:
@@ -110,7 +110,7 @@ jobs:
     steps:
       - checkout
       - aws-eks/update-kubeconfig-with-authenticator:
-          cluster-name: OurMemoryApp
+          cluster-name: ourmemoryapp
           install-kubectl: true
       - run:
           name: Test Kubernetes
@@ -121,7 +121,7 @@ jobs:
       - kubernetes/create-or-update-resource:
           get-rollout-status: true
           resource-file-path: "infra/deployment.yml"
-          resource-name: deployment/OurMemoryApp
+          resource-name: deployment/ourmemoryapp
           show-kubectl-command: true
 
       - kubernetes/create-or-update-resource:
@@ -130,7 +130,7 @@ jobs:
 
       - run:
           name: Check deploy status
-          command: kubectl get svc OurMemoryApp
+          command: kubectl get svc ourmemoryapp
 
       - run:
           name: Testing deployments
