@@ -156,13 +156,13 @@ workflows:
   default:
     jobs:
       - setup-environment
-      - build-docker:
+      - build-and-upload-docker:
           requires: [setup-environment]
           filters:
             branches:
               only: [main]
       - eks-deploy:
-          requires: [build-docker]
+          requires: [build-and-upload-docker]
       - run-app-deploy:
           requires: [eks-deploy]
       - run-test:
