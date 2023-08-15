@@ -150,7 +150,7 @@ jobs:
       - run:
           name: find the load balancer's IP address
           command: |
-            kubectl describe services my-app-service
+            kubectl describe services ourmemoryapp
 
 workflows:
   default:
