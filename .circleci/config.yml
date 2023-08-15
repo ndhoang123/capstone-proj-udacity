@@ -120,12 +120,12 @@ jobs:
 
       - kubernetes/create-or-update-resource:
           get-rollout-status: true
-          resource-file-path: "infra/deployment.yml"
+          resource-file-path: "infra/deployment.yaml"
           resource-name: deployment/ourmemoryapp
           show-kubectl-command: true
 
       - kubernetes/create-or-update-resource:
-          resource-file-path: "infra/service.yml"
+          resource-file-path: "infra/service.yaml"
           show-kubectl-command: true
 
       - run:
